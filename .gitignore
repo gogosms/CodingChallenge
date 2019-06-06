@@ -1,3 +1,6 @@
+#Add Packages
+packages
+
 #internal files
 iolasp/services/xml/*.xml
 
@@ -67,3 +70,4 @@ _ReSharper*/
 
 #Test files
 *.testsettings
+
