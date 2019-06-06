@@ -66,6 +66,7 @@
     <Compile Include="Forms\Trapeze.cs" />
     <Compile Include="Forms\Triangle.cs" />
     <Compile Include="FactoryGeometricForm.cs" />
+    <Compile Include="IFactoryGeometricForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

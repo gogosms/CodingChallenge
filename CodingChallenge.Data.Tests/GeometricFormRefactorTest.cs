@@ -46,8 +46,8 @@ namespace CodingChallenge.Data.Tests
         [Test]
         public void Must_Empty_Forms()
         {
-            var geometricForm = new FactoryGeometricForm(_localizationManager, Array.Empty<IForm>());
-            var report = geometricForm.Imprimir();
+            var geometricForm = new FactoryGeometricForm(_localizationManager);
+            var report = geometricForm.Print(Array.Empty<IForm>());
             Assert.IsNotEmpty(report.message);
             Assert.That(report.message, Is.EqualTo("<h1>Lista vacía de formas!</h1>"));
             Assert.IsNull(report.formModels);
@@ -59,8 +59,8 @@ namespace CodingChallenge.Data.Tests
         {
             var square = new Square(4);
             var otherSquare = new Square(2);
-            var geometricForm = new FactoryGeometricForm(_localizationManager, new IForm[] {square, otherSquare});
-            var report = geometricForm.Imprimir();
+            var geometricForm = new FactoryGeometricForm(_localizationManager);
+            var report = geometricForm.Print(new IForm[] { square, otherSquare });
             Assert.IsNotEmpty(report.message);
             Assert.That(report.formModels.Values.Count, Is.EqualTo(1));
             var expectedSquare = report.formModels.Values.FirstOrDefault();
@@ -82,8 +82,8 @@ namespace CodingChallenge.Data.Tests
         {
             var equilateralTriangle = new EquilateralTriangle(4);
             var squares = new IForm[] {equilateralTriangle, equilateralTriangle};
-            var geometricForm = new FactoryGeometricForm(_localizationManager, squares);
-            var report = geometricForm.Imprimir();
+            var geometricForm = new FactoryGeometricForm(_localizationManager);
+            var report = geometricForm.Print(squares);
             Assert.IsNotEmpty(report.message);
             Assert.That(report.formModels.Values.Count, Is.EqualTo(1));
             var square = report.formModels.Values.FirstOrDefault();
@@ -120,8 +120,8 @@ namespace CodingChallenge.Data.Tests
                 forms.Count(f => f.Name.Equals(nameof(Circle), StringComparison.InvariantCultureIgnoreCase));
             var triangleCount = forms.Count(f =>
                 f.Name.Equals(nameof(EquilateralTriangle), StringComparison.InvariantCultureIgnoreCase));
-            var geometricFormRefactor = new FactoryGeometricForm(_localizationManager, forms);
-            var report = geometricFormRefactor.Imprimir();
+            var geometricFormRefactor = new FactoryGeometricForm(_localizationManager);
+            var report = geometricFormRefactor.Print(forms);
 
             Assert.IsNotNull(report);
             Assert.IsNotNull(report.formModels);
@@ -141,8 +141,8 @@ namespace CodingChallenge.Data.Tests
         public void Test_Resumen_Lista_Con_Un_Cuadrado()
         {
             var squares = new IForm[] {new Square(4)};
-            var geometricForm = new FactoryGeometricForm(_localizationManager, squares);
-            var report = geometricForm.Imprimir();
+            var geometricForm = new FactoryGeometricForm(_localizationManager);
+            var report = geometricForm.Print(squares);
             Assert.IsNotEmpty(report.message);
 
             Assert.That(report.formModels.Values.Count, Is.EqualTo(1));
@@ -169,8 +169,8 @@ namespace CodingChallenge.Data.Tests
                 new Trapeze(5, 4, 3, 6),
                 new Square(4)
             };
-            var geometricForm = new FactoryGeometricForm(_localizationManager, forms);
-            var report = geometricForm.Imprimir();
+            var geometricForm = new FactoryGeometricForm(_localizationManager);
+            var report = geometricForm.Print(forms);
             Assert.IsNotNull(report);
             Assert.IsNotNull(report.message);
             Assert.IsNotNull(report.formModels);

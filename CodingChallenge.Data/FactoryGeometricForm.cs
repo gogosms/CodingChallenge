@@ -8,23 +8,21 @@ using CodingChallenge.Localization.Resources;
 
 namespace CodingChallenge.Data
 {
-    public class FactoryGeometricForm
+    public class FactoryGeometricForm : IFactoryGeometricForm
     {
-        private readonly IForm[] _expectedForms;
         private readonly ILocalizationManager _localizationManager;
 
-        public FactoryGeometricForm(ILocalizationManager localizationManager, IForm[] forms)
+        public FactoryGeometricForm(ILocalizationManager localizationManager)
         {
             _localizationManager = localizationManager;
-            _expectedForms = forms;
         }
 
         public (string message, Dictionary<string, (decimal resultareas, decimal resultPerimeters, int iteration)>
-            formModels) Imprimir()
+            formModels) Print(IForm[] expectedForms)
         {
             Debug.Assert(_localizationManager != null);
             var sb = new StringBuilder();
-            if (!_expectedForms.Any())
+            if (!expectedForms.Any())
             {
                 sb.Append($"<h1>{_localizationManager.Get(nameof(FormaResource.EmptyForm))}!</h1>");
                 return (sb.ToString(), null);
@@ -34,7 +32,7 @@ namespace CodingChallenge.Data
 
             var formModels = new Dictionary<string, (decimal resultareas, decimal resultPerimeters, int iteration)>();
 
-            foreach (var form in _expectedForms)
+            foreach (var form in expectedForms)
             {
                 Debug.Assert(form != null);
                 var setArea = form.CalcularArea();
