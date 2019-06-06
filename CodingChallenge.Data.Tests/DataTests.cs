@@ -7,7 +7,7 @@ namespace CodingChallenge.Data.Tests
 {
     [TestFixture]
     [Explicit]
-    [Obsolete("This classes is obsoleted. Must look GeometricFormRefactor.")]
+    [Obsolete("This classes is obsoleted. Must look FactoryGeometricForm.")]
     public class DataTests
     {
         [TestCase]
@@ -31,7 +31,9 @@ namespace CodingChallenge.Data.Tests
 
             var resumen = FormaGeometrica.Imprimir(cuadrados, FormaGeometrica.Castellano);
 
-            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Cuadrado | Area 25 | Perimetro 20 <br/>TOTAL:<br/>1 formas Perimetro 20 Area 25", resumen);
+            Assert.AreEqual(
+                "<h1>Reporte de Formas</h1>1 Cuadrado | Area 25 | Perimetro 20 <br/>TOTAL:<br/>1 formas Perimetro 20 Area 25",
+                resumen);
         }
 
         [TestCase]
@@ -46,7 +48,9 @@ namespace CodingChallenge.Data.Tests
 
             var resumen = FormaGeometrica.Imprimir(cuadrados, FormaGeometrica.Ingles);
 
-            Assert.AreEqual("<h1>Shapes report</h1>3 Squares | Area 35 | Perimeter 36 <br/>TOTAL:<br/>3 shapes Perimeter 36 Area 35", resumen);
+            Assert.AreEqual(
+                "<h1>Shapes report</h1>3 Squares | Area 35 | Perimeter 36 <br/>TOTAL:<br/>3 shapes Perimeter 36 Area 35",
+                resumen);
         }
 
         [TestCase]

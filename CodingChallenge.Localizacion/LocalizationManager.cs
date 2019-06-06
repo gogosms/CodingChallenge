@@ -18,21 +18,18 @@ namespace CodingChallenge.Localization
             _supportLanguages = new Lazy<List<string>>(Initialize);
         }
 
-        private List<string> Initialize()
-        {
-            return new List<string> {"es", "en"};
-        }
-
         public string Get(string resourceId)
         {
             var currentThreadCurrentCulture = Thread.CurrentThread.CurrentCulture;
             var twoLetterIsoLanguageName = currentThreadCurrentCulture.TwoLetterISOLanguageName;
             if (!_supportLanguages.Value.Any(l => l.Contains(twoLetterIsoLanguageName)))
-            {
                 throw new NotSupportLanguageException(twoLetterIsoLanguageName);
-            }
             return _resourceManager.GetString(resourceId, currentThreadCurrentCulture);
         }
-        
+
+        private List<string> Initialize()
+        {
+            return new List<string> {"es", "en"};
+        }
     }
 }
