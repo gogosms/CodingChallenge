@@ -11,12 +11,12 @@ namespace CodingChallenge.Data.Forms
             _size = size;
         }
 
-        public override decimal CalcularArea()
+        public override decimal GetArea()
         {
             return (decimal) Math.Sqrt(3) / 4 * _size * _size;
         }
 
-        public override decimal CalcularPerimetro()
+        public override decimal GetPerimeter()
         {
             return _size * 3;
         }

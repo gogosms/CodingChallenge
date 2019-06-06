@@ -3,7 +3,7 @@
     public interface IForm
     {
         string Name { get; }
-        decimal CalcularArea();
-        decimal CalcularPerimetro();
+        decimal GetArea();
+        decimal GetPerimeter();
     }
 }

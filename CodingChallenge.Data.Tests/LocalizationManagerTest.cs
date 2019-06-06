@@ -45,5 +45,19 @@ namespace CodingChallenge.Data.Tests
             Thread.CurrentThread.CurrentCulture = ci;
             Assert.That(_localizationManager.Get("EmptyForm"), Is.EqualTo("Empty list of forms"));
         }
+
+        [TestCase("EmptyFormError", false)]
+        [TestCase("EmptyForm", true)]
+        public void Must_Resource_Not_Found(string resourceId, bool isValid)
+        {
+            if (isValid)
+            {
+                Assert.DoesNotThrow(() => _localizationManager.Get(resourceId));
+            }
+            else
+            {
+                Assert.Throws<NotFountResourceException>(() => _localizationManager.Get(resourceId, true));
+            }
+        }
     }
 }

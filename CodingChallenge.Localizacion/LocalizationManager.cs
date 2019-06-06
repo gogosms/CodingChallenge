@@ -17,19 +17,25 @@ namespace CodingChallenge.Localization
             _resourceManager = new ResourceManager(typeof(FormaResource));
             _supportLanguages = new Lazy<List<string>>(Initialize);
         }
+        
+        private List<string> Initialize()
+        {
+            return new List<string> {"es", "en"};
+        }
 
-        public string Get(string resourceId)
+        public string Get(string resourceId, bool isShouldThrowResourceNotFound = false)
         {
             var currentThreadCurrentCulture = Thread.CurrentThread.CurrentCulture;
             var twoLetterIsoLanguageName = currentThreadCurrentCulture.TwoLetterISOLanguageName;
             if (!_supportLanguages.Value.Any(l => l.Contains(twoLetterIsoLanguageName)))
                 throw new NotSupportLanguageException(twoLetterIsoLanguageName);
-            return _resourceManager.GetString(resourceId, currentThreadCurrentCulture);
-        }
+            var message = _resourceManager.GetString(resourceId, currentThreadCurrentCulture);
 
-        private List<string> Initialize()
-        {
-            return new List<string> {"es", "en"};
+            if (isShouldThrowResourceNotFound && string.IsNullOrEmpty(message))
+            {
+                throw new NotFountResourceException(resourceId);
+            }
+            return message;
         }
     }
 }

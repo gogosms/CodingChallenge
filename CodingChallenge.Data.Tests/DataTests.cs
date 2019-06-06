@@ -7,7 +7,7 @@ namespace CodingChallenge.Data.Tests
 {
     [TestFixture]
     [Explicit]
-    [Obsolete("This classes is obsoleted. Must look FactoryGeometricForm.")]
+    [Obsolete("This class is obsoleted. Must look FactoryGeometricForm.")]
     public class DataTests
     {
         [TestCase]

@@ -11,12 +11,12 @@ namespace CodingChallenge.Data.Forms
             _radio = radio;
         }
 
-        public override decimal CalcularArea()
+        public override decimal GetArea()
         {
             return (decimal) Math.PI * (_radio / 2) * (_radio / 2);
         }
 
-        public override decimal CalcularPerimetro()
+        public override decimal GetPerimeter()
         {
             return (decimal) Math.PI * _radio;
         }

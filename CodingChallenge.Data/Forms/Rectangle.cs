@@ -11,12 +11,12 @@
             _height = height;
         }
 
-        public override decimal CalcularArea()
+        public override decimal GetArea()
         {
             return _based * _height;
         }
 
-        public override decimal CalcularPerimetro()
+        public override decimal GetPerimeter()
         {
             return 2 * _based + 2 * _height;
         }

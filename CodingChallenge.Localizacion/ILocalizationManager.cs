@@ -2,6 +2,6 @@
 {
     public interface ILocalizationManager
     {
-        string Get(string resourceId);
+        string Get(string resourceId, bool isShouldThrowResourceNotFound = false);
     }
 }

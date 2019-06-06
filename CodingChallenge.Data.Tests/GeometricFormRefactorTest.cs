@@ -33,16 +33,7 @@ namespace CodingChallenge.Data.Tests
 
         private WindsorContainer _container;
         private ILocalizationManager _localizationManager;
-
-        private static void AssertHtml(
-            (string message, Dictionary<string, (decimal resultareas, decimal resultPerimeters, int iteration)>
-                formModels) report)
-        {
-            var htmlDocument = new HtmlDocument();
-            htmlDocument.LoadHtml(report.message);
-            Assert.That(htmlDocument.ParseErrors.Count(), Is.EqualTo(0));
-        }
-
+        
         [Test]
         public void Must_Empty_Forms()
         {
@@ -69,8 +60,8 @@ namespace CodingChallenge.Data.Tests
             Assert.That(squareType, Is.EqualTo(nameof(Square)));
             Assert.That(expectedSquare.iteration, Is.EqualTo(2));
             Assert.That(expectedSquare.resultPerimeters,
-                Is.EqualTo(square.CalcularPerimetro() + otherSquare.CalcularPerimetro()));
-            Assert.That(expectedSquare.resultareas, Is.EqualTo(square.CalcularArea() + otherSquare.CalcularArea()));
+                Is.EqualTo(square.GetPerimeter() + otherSquare.GetPerimeter()));
+            Assert.That(expectedSquare.resultareas, Is.EqualTo(square.GetArea() + otherSquare.GetArea()));
             Assert.That(report.message, Is.EqualTo("<h1>Reporte de Formas</h1>Cantidad de interacciones:2 " +
                                                    "| Forma: 'Cuadrados'| Area: 20 | Perimetro: 24 <br/>"));
 
@@ -92,9 +83,9 @@ namespace CodingChallenge.Data.Tests
             Assert.That(squareType, Is.EqualTo(nameof(EquilateralTriangle)));
             Assert.That(square.iteration, Is.EqualTo(2));
             Assert.That(square.resultPerimeters,
-                Is.EqualTo(equilateralTriangle.CalcularPerimetro() + equilateralTriangle.CalcularPerimetro()));
+                Is.EqualTo(equilateralTriangle.GetPerimeter() + equilateralTriangle.GetPerimeter()));
             Assert.That(square.resultareas,
-                Is.EqualTo(equilateralTriangle.CalcularArea() + equilateralTriangle.CalcularArea()));
+                Is.EqualTo(equilateralTriangle.GetArea() + equilateralTriangle.GetArea()));
             Assert.That(report.message, Is.EqualTo("<h1>Reporte de Formas</h1>Cantidad de interacciones:2 " +
                                                    "| Forma: 'Tringulo Equilateros'| Area: 13,86 | Perimetro: 24 <br/>"));
 
@@ -180,6 +171,15 @@ namespace CodingChallenge.Data.Tests
                 "<h1>Report Forms</h1>Number of interactions:1 | Form: 'Trapeze'| Area: 22.5 | Perimeter: 18 <br/>" +
                 "Number of interactions:1 | Form: 'Square'| Area: 16 | Perimeter: 16 <br/>"));
             AssertHtml(report);
+        }
+
+        private static void AssertHtml(
+            (string message, Dictionary<string, (decimal resultareas, decimal resultPerimeters, int iteration)>
+                formModels) report)
+        {
+            var htmlDocument = new HtmlDocument();
+            htmlDocument.LoadHtml(report.message);
+            Assert.That(htmlDocument.ParseErrors.Count(), Is.EqualTo(0));
         }
     }
 }

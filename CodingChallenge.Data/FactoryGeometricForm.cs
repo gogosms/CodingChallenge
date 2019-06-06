@@ -35,8 +35,8 @@ namespace CodingChallenge.Data
             foreach (var form in expectedForms)
             {
                 Debug.Assert(form != null);
-                var setArea = form.CalcularArea();
-                var setPer = form.CalcularPerimetro();
+                var setArea = form.GetArea();
+                var setPer = form.GetPerimeter();
                 if (!formModels.ContainsKey(form.Name))
                 {
                     formModels.Add(form.Name, (setArea, setPer, 1));

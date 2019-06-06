@@ -15,12 +15,12 @@
             _sizeDown = sizeDown;
         }
 
-        public override decimal CalcularArea()
+        public override decimal GetArea()
         {
             return _sizeLeft * ((_sizeDown + _sizeTop) / 2);
         }
 
-        public override decimal CalcularPerimetro()
+        public override decimal GetPerimeter()
         {
             return _sizeDown + _sizeTop + _sizeLeft + _sizeRight;
         }

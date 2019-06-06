@@ -9,12 +9,12 @@
             _side = side;
         }
 
-        public override decimal CalcularArea()
+        public override decimal GetArea()
         {
             return _side * _side;
         }
 
-        public override decimal CalcularPerimetro()
+        public override decimal GetPerimeter()
         {
             return _side * 4;
         }

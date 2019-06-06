@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using CodingChallenge.Data.Forms;
@@ -10,15 +9,15 @@ namespace CodingChallenge.Data
     {
         public static string[] GetSupportForms()
         {
-            return GetSupportFormTypes().Select(n => n.Name).ToArray();
+            return GetSupportFormTypes<Form>().Select(n => n.Name).ToArray();
         }
 
-        public static IEnumerable<Type> GetSupportFormTypes()
+        public static Type[] GetSupportFormTypes<T>() where T : IForm
         {
-            return Assembly.GetAssembly(typeof(Form)).GetTypes()
+            return  Assembly.GetAssembly(typeof(T)).GetTypes()
                 .Where(myType => myType.IsClass
                                  && !myType.IsAbstract
-                                 && myType.IsSubclassOf(typeof(Form)));
+                                 && myType.IsSubclassOf(typeof(T))).ToArray();
         }
     }
 }

@@ -16,7 +16,7 @@ using System.Text;
 
 namespace CodingChallenge.Data.Classes
 {
-    [Obsolete("This classes is obsoleted. Must look FactoryGeometricForm.")]
+    [Obsolete("This class is obsoleted. Must look FactoryGeometricForm.")]
     public class FormaGeometrica
     {
         private readonly decimal _lado;
