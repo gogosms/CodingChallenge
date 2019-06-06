@@ -1,8 +1,10 @@
 ﻿/*
- * Refactorear la clase para respetar principios de programación orientada a objetos. Qué pasa si debemos soportar un nuevo idioma para los reportes, o
+ * Refactorear la clase para respetar principios de programación orientada a objetos.
+ * Qué pasa si debemos soportar un nuevo idioma para los reportes, o
  * agregar más formas geométricas?
  *
- * Se puede hacer cualquier cambio que se crea necesario tanto en el código como en los tests. La única condición es que los tests pasen OK.
+ * Se puede hacer cualquier cambio que se crea necesario tanto en el código como en los tests.
+ * La única condición es que los tests pasen OK.
  *
  * TODO: Implementar Trapecio/Rectangulo, agregar otro idioma a reporting.
  * */
@@ -11,9 +13,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace CodingChallenge.Data.Classes
 {
+    [Obsolete("This classes is obsoleted. Must look GeometricFormRefactor.")]
     public class FormaGeometrica
     {
         #region Formas
@@ -96,7 +100,7 @@ namespace CodingChallenge.Data.Classes
                         perimetroTriangulos += formas[i].CalcularPerimetro();
                     }
                 }
-                
+
                 sb.Append(ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, Cuadrado, idioma));
                 sb.Append(ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, Circulo, idioma));
                 sb.Append(ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, TrianguloEquilatero, idioma));

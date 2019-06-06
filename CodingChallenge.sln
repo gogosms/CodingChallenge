@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingChallenge.Data", "CodingChallenge.Data\CodingChallenge.Data.csproj", "{B21A8F24-C7E0-4E69-B1D7-B424237DC216}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingChallenge.Data.Tests", "CodingChallenge.Data.Tests\CodingChallenge.Data.Tests.csproj", "{CAC2DC96-0AEF-48C0-A6E4-07EF206B860A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingChallenge.Localization", "CodingChallenge.Localizacion\CodingChallenge.Localization.csproj", "{8AC7C7D1-3EFF-47AD-8E78-2FF7C01A4823}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CAC2DC96-0AEF-48C0-A6E4-07EF206B860A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAC2DC96-0AEF-48C0-A6E4-07EF206B860A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAC2DC96-0AEF-48C0-A6E4-07EF206B860A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AC7C7D1-3EFF-47AD-8E78-2FF7C01A4823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AC7C7D1-3EFF-47AD-8E78-2FF7C01A4823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AC7C7D1-3EFF-47AD-8E78-2FF7C01A4823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AC7C7D1-3EFF-47AD-8E78-2FF7C01A4823}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

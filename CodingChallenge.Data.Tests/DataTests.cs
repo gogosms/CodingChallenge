@@ -6,6 +6,8 @@ using NUnit.Framework;
 namespace CodingChallenge.Data.Tests
 {
     [TestFixture]
+    [Explicit]
+    [Obsolete("This classes is obsoleted. Must look GeometricFormRefactor.")]
     public class DataTests
     {
         [TestCase]
