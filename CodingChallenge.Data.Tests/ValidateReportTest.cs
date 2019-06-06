@@ -1,9 +1,4 @@
-﻿using System.Globalization;
-using System.Linq;
-using System.Threading;
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using CodingChallenge.Localization;
+﻿using System.Linq;
 using HtmlAgilityPack;
 using NUnit.Framework;
 
@@ -12,25 +7,6 @@ namespace CodingChallenge.Data.Tests
     [TestFixture]
     public class ValidateReportTest
     {
-        [SetUp]
-        public void Setup()
-        {
-            _container = new WindsorContainer();
-            _container.Register(Component.For<ILocalizationManager>().ImplementedBy<LocalizationManager>());
-            _localizationManager = _container.Resolve<ILocalizationManager>();
-            var ci = new CultureInfo("es");
-            Thread.CurrentThread.CurrentCulture = ci;
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            _container.Release(_localizationManager);
-        }
-
-        private WindsorContainer _container;
-        private ILocalizationManager _localizationManager;
-
         [TestCase("<span>Test", false)]
         [TestCase("<span>Test</sspan>", false)]
         [TestCase("<span>Test</span>", true)]
